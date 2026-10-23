@@ -6,11 +6,16 @@ import re
 from typing import Union
 import pandas as pd
 
+# Design Decision: "Behaviour-only" features are restricted to properties computable from
+# an account's own outgoing transactions and profile alone, WITHOUT any flow relationship
+# between incoming and outgoing money. Inflows (txn_count_in, total_in_inr) are network/flow
+# properties that, when combined with outflow totals, allow decision trees to reconstruct
+# flow balance and forwarding ratios. Therefore, txn_count_in and total_in_inr belong to
+# NETWORK_FEATURES, ensuring the behaviour-only ablation isolates pure user behavior from flow dynamics.
+
 BEHAVIOUR_FEATURES = [
     "txn_count_out",
-    "txn_count_in",
     "total_out_inr",
-    "total_in_inr",
     "avg_amount_out",
     "night_txn_ratio",
     "new_payee_ratio",
@@ -19,6 +24,8 @@ BEHAVIOUR_FEATURES = [
 ]
 
 NETWORK_FEATURES = [
+    "txn_count_in",
+    "total_in_inr",
     "n_unique_senders",
     "n_unique_receivers",
     "forward_ratio_15min",

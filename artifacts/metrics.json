@@ -1,14 +1,14 @@
 {
-  "data_source": "sample_fixture",
-  "generated_at": "2026-09-30T23:59:59",
-  "seed": 0,
-  "n_accounts": 20,
-  "n_transactions": 36,
-  "n_fraud_accounts": 5,
+  "data_source": "synthetic_pipeline",
+  "generated_at": "2026-10-23T15:58:47",
+  "seed": 42,
+  "n_accounts": 3000,
+  "n_transactions": 53979,
+  "n_fraud_accounts": 150,
   "typology_counts": {
-    "fan_in_fan_out": 2,
-    "pass_through_chain": 2,
-    "burst_velocity": 1
+    "fan_in_fan_out": 60,
+    "pass_through_chain": 48,
+    "burst_velocity": 42
   },
   "cv": {
     "scheme": "GroupKFold",
@@ -16,7 +16,7 @@
   },
   "model": {
     "name": "xgboost",
-    "pr_auc": 0.0,
-    "pr_auc_behaviour_only": 0.0
+    "pr_auc": 0.9915,
+    "pr_auc_behaviour_only": 0.8894
   }
 }

@@ -1,19 +1,59 @@
-import React from 'react';
+import React from "react";
 
-/**
- * Header Component
- *
- * Props:
- * - dataSource (string): Data source identifier (e.g., 'sample_fixture', 'synthetic_pipeline')
- * - generatedAt (string): ISO timestamp when artifacts were produced
- * - version (string): API / System version
- */
-export default function Header({ dataSource = 'sample_fixture', generatedAt = '', version = '1.0.0' }) {
+export default function Header({
+  dataSource = "synthetic_pipeline",
+  generatedAt,
+  version = "1.0.0",
+  isOnline = true,
+  isMock = false,
+}) {
+  const getBadge = () => {
+    if (isMock || dataSource === "mock_mode") {
+      return <span className="badge badge-mock">MOCK DATA</span>;
+    }
+    if (dataSource === "synthetic_pipeline") {
+      return <span className="badge badge-synthetic">SYNTHETIC</span>;
+    }
+    if (dataSource === "sample_fixture") {
+      return <span className="badge badge-fixture">SAMPLE FIXTURE</span>;
+    }
+    return <span className="badge badge-status">{dataSource}</span>;
+  };
+
   return (
-    <header className="header-placeholder" data-testid="header">
-      <h1>MuleNet</h1>
-      <span className="badge">{dataSource ? dataSource.toUpperCase() : 'SYNTHETIC'}</span>
-      <span className="version">v{version}</span>
-    </header>
+    <>
+      {(isMock || dataSource === "mock_mode") && (
+        <div className="mock-banner">
+          DEMO MODE: RUNNING ON SYNTHETIC CONTRACT MOCK FIXTURES
+        </div>
+      )}
+      <header className="app-header">
+        <div className="header-brand">
+          <div className="brand-logo">M</div>
+          <div>
+            <div className="brand-title">MuleNet</div>
+            <div className="brand-tagline">
+              UPI Fraud Ring & Mule Network Investigation Console
+            </div>
+          </div>
+        </div>
+
+        <div className="header-meta">
+          {getBadge()}
+          {generatedAt && (
+            <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>
+              Generated: {new Date(generatedAt).toLocaleString()}
+            </span>
+          )}
+          <span className="badge badge-status">v{version}</span>
+          <span className="badge badge-status">
+            <span
+              className={`status-dot ${isOnline ? "online" : "offline"}`}
+            />
+            {isOnline ? "API Online" : "API Offline"}
+          </span>
+        </div>
+      </header>
+    </>
   );
 }
