@@ -1,0 +1,54 @@
+{
+  "ACC-00001": [
+    {
+      "feature": "forward_ratio_15min",
+      "text": "Forwarded 92% of received money within 15 minutes",
+      "shap": 0.42,
+      "value": 0.92
+    },
+    {
+      "feature": "n_unique_senders",
+      "text": "Received money from 6 different senders",
+      "shap": 0.28,
+      "value": 6.0
+    }
+  ],
+  "ACC-00002": [
+    {
+      "feature": "n_unique_senders",
+      "text": "Received money from 3 different senders",
+      "shap": 0.31,
+      "value": 3.0
+    }
+  ],
+  "ACC-00003": [
+    {
+      "feature": "n_unique_senders",
+      "text": "Received money from 1 different senders",
+      "shap": 0.15,
+      "value": 1.0
+    }
+  ],
+  "ACC-00004": [
+    {
+      "feature": "forward_ratio_15min",
+      "text": "Forwarded 93% of received money within 15 minutes",
+      "shap": 0.39,
+      "value": 0.93
+    },
+    {
+      "feature": "n_unique_senders",
+      "text": "Received money from 1 different senders",
+      "shap": 0.18,
+      "value": 1.0
+    }
+  ],
+  "ACC-00006": [
+    {
+      "feature": "n_unique_senders",
+      "text": "Received money from 45 different senders",
+      "shap": 0.52,
+      "value": 45.0
+    }
+  ]
+}

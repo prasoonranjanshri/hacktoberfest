@@ -1,0 +1,22 @@
+{
+  "data_source": "sample_fixture",
+  "generated_at": "2026-09-30T23:59:59",
+  "seed": 0,
+  "n_accounts": 20,
+  "n_transactions": 36,
+  "n_fraud_accounts": 5,
+  "typology_counts": {
+    "fan_in_fan_out": 2,
+    "pass_through_chain": 2,
+    "burst_velocity": 1
+  },
+  "cv": {
+    "scheme": "GroupKFold",
+    "n_splits": 5
+  },
+  "model": {
+    "name": "xgboost",
+    "pr_auc": 0.0,
+    "pr_auc_behaviour_only": 0.0
+  }
+}
